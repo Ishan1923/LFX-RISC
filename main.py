@@ -2,7 +2,7 @@
 class Rod:
     def __init__(self, name_):
         self.stack = []
-        self.name = name_
+        self.name = name_ 
     
     def push(self, disk_num):
         '''
