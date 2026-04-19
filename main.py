@@ -50,6 +50,8 @@ class Run:
         for i in range(n, 0, -1):
             self.A.push(i)
         
+        self.draw()
+
         self.TowerOfHanoi()
         
 
@@ -61,8 +63,11 @@ class Run:
 
         if t == 0:
             self.recursive_method(self.n, self.A, self.C, self.B)
-        else:
+        elif t == 1:
             self.iterative_approach()
+        else:
+            print("Quiting")
+            return
         
     def iterative_approach(self):
         if self.n % 2 == 1:
@@ -99,6 +104,28 @@ class Run:
     
     def display(self, rod1, rod2, val):
         print(f"{val} : {rod1.name}-> {rod2.name}")
+        self.draw()
+    
+    def draw(self):
+        print("\n")
+        for row in range(self.n, 0, -1):
+            line = ""
+            for rod in [self.A, self.B, self.C]:
+                if len(rod.stack) >= row:
+                    disk = rod.stack[row - 1]
+                    disk_str = f"[{'=' * disk}]"          
+                else:
+                    disk_str = "|"                         
+                line += disk_str.center(self.n * 2 + 6)   
+            print(line)
+
+        base = ("=" * (self.n * 2 + 2)).center(self.n * 2 + 6)
+        print(base * 3)
+        labels = ""
+        for rod in [self.A, self.B, self.C]:
+            labels += rod.name.center(self.n * 2 + 6)
+        print(labels)
+        print()
         
 
 
