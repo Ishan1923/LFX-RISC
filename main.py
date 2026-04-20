@@ -1,5 +1,16 @@
 '''
+Tower of Hanoi - Simulation
+============================
+Author : Ishan Pathak
+GitHub : https://github.com/Ishan1923
+
+Demonstrates:
+  - RECURSION  : recursive_method() calls itself twice per step,
+                 reducing n by 1 each time until n == 0 (base case)
+  - ITERATION  : iterative_approach() loops through (2^n - 1) moves,
+                 cycling through 3 rod pairs each iteration
 '''
+import time
 class Rod:
     def __init__(self, name_):
         self.stack = []
@@ -132,6 +143,7 @@ class Run:
                     disk_str = "|"                         
                 line += disk_str.center(self.n * 2 + 6)   
             print(line)
+        time.sleep(0.6)
 
         base = ("=" * (self.n * 2 + 2)).center(self.n * 2 + 6)
         print(base * 3)
